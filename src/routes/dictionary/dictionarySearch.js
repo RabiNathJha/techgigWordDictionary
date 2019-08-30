@@ -1,6 +1,5 @@
 import path from 'path';
 import fs from 'fs';
-//joining path of directory
 
 export default  (req, res, next) => {
 

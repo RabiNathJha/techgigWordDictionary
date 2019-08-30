@@ -20,8 +20,8 @@ const storage = multer.diskStorage({
   }
 });
 
+//file type validation
 const fileFilter = (req, file, cb) => {
-  // reject a file
   if (file.mimetype === 'text/plain') {
     cb(null, true);
   } else {
@@ -35,9 +35,13 @@ const upload = multer({
   fileFilter
 });
 
+//endpoints ex: /dictionary/upload
+
 ((dictionary) => {
+
 app.post(`${dictionary}/upload`, upload.single('dictionaryTxt'), dictionaryUpload);
 app.get(`${dictionary}/search/:searchKey`, dictionarySearch);
+
 })('/dictionary');
 
 app.listen(process.env.PORT, () =>
