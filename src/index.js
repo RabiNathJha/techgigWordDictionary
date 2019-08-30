@@ -1,11 +1,14 @@
 import express from 'express';
 import multer from 'multer';
+import cors from 'cors';
+
 import { dictionaryUpload, dictionarySearch } from './routes';
 import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 // file upload logic
