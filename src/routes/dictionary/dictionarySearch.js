@@ -25,9 +25,9 @@ export default  (req, res, next) => {
             try {
                 const data = fs.readFileSync(FILE_LOCATION);
 
-                if(data.includes(searchKey)){
+                if(data.includes(searchKey)) {
                     searchResult.found = true;
-                    searchResult.fileName.push(fileName);
+                    searchResult.fileNames.push(fileName);
                 } 
             } catch(e) {
                 next(e.stack); 
